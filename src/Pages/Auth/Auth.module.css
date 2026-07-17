@@ -9,17 +9,29 @@
 }
 
 /* Logo */
-.login img {
+.login__logoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 88px;
   margin: 0 0 20px;
-  object-fit: contain;
-  width: 130px;
-  height: 80px;
-  transition: transform 0.3s ease;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
-.login img:hover {
-  transform: scale(1.05);
+.login__logo {
+  width: 118px;
+  height: auto;
+  max-height: 58px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.login__logo:hover {
+  transform: scale(1.04);
 }
 
 /* Container */
@@ -149,8 +161,13 @@
     padding: 25px;
   }
 
-  .login img {
-    width: 100px;
+  .login__logoLink {
+    width: 132px;
+    height: 74px;
+  }
+
+  .login__logo {
+    width: 96px;
   }
 }
 

@@ -3,7 +3,21 @@ import classes from "./Footer.module.css";
 
 function Footer() {
   return (
-    <footer className={classes.footer}>
+    <footer id="top" className={classes.footer}>
+      <div className={classes.footer__top}>
+        <div className={classes.footer__brand}>
+          <div className={classes.footer__brandIcon}>a</div>
+          <div>
+            <h3>Amazon helps you shop smarter</h3>
+            <p>Fast shipping, secure payments, and support you can count on.</p>
+          </div>
+        </div>
+
+        <a className={classes.footer__backToTop} href="#top">
+          Back to top ↑
+        </a>
+      </div>
+
       <div className={classes.footer__container}>
         <div className={classes.footer__section}>
           <h4>Get to Know Us</h4>

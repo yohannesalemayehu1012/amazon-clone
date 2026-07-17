@@ -11,6 +11,7 @@ import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { Type } from "../../Utility/action.type";
 import { ClipLoader } from "react-spinners";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import amazonLogo from "../../Image/amazon-logo.png";
 
 function Auth() {
   const [email, setEmail] = useState("");
@@ -77,10 +78,11 @@ function Auth() {
   return (
     <section className={classes.login}>
       {/* Logo */}
-      <Link to="/">
+      <Link to="/" className={classes.login__logoLink}>
         <img
-          src="https://i.pinimg.com/736x/75/70/30/757030bb2dee57dddd5446b78a783daf.jpg"
+          src={amazonLogo}
           alt="Amazon Logo"
+          className={classes.login__logo}
         />
       </Link>
 

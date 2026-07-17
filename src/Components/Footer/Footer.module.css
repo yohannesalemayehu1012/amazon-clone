@@ -1,29 +1,106 @@
 /* ================= FOOTER ================= */
 
 .footer {
-  background-color: #131921;
+  background: linear-gradient(180deg, #131921 0%, #0f1419 100%);
   color: #fff;
-  padding: 20px 30px;
+  padding: 24px 24px 0;
   margin-top: 30px;
-  border-top: 1px solid #3f4553;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
   position: relative;
   z-index: 50;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 22px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+}
+
+.footer__brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 480px;
+}
+
+.footer__brandIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff9900, #ffb347);
+  color: #111;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(255, 153, 0, 0.25);
+}
+
+.footer__brand h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer__brand p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #cfd7e2;
+}
+
+.footer__backToTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 153, 0, 0.16);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.footer__backToTop:hover {
+  background: rgba(255, 153, 0, 0.24);
+  transform: translateY(-1px);
 }
 
 .footer__container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
-  max-width: 1500px;
-  margin: 0 auto 15px;
+  max-width: 1200px;
+  margin: 0 auto 20px;
+}
+
+.footer__section {
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .footer__section h4 {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   margin-bottom: 10px;
   color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .footer__section ul {
@@ -37,24 +114,30 @@
 }
 
 .footer__section a {
-  color: #9daabd;
+  display: block;
+  color: #c4ccda;
   text-decoration: none;
-  font-size: 11px;
-  transition: color 0.2s ease;
+  font-size: 0.92rem;
+  padding: 2px 0;
+  transition: all 0.2s ease;
 }
 
-.footer__section a:hover {
+.footer__section a:hover,
+.footer__section a:focus-visible {
   color: #ff9900;
-  text-decoration: underline;
+  transform: translateX(3px);
 }
 
 .footer__divider {
   height: 1px;
-  background-color: #3f4553;
-  margin: 15px 0;
-  max-width: 1500px;
-  margin-left: auto;
-  margin-right: auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  margin: 18px auto 20px;
+  max-width: 1200px;
 }
 
 .footer__bottom {
@@ -62,9 +145,9 @@
   align-items: center;
   justify-content: center;
   gap: 25px;
-  padding: 15px;
+  padding: 10px 0 0;
   flex-wrap: wrap;
-  max-width: 1500px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -77,9 +160,9 @@
 }
 
 .footer__links a {
-  color: #9daabd;
+  color: #c4ccda;
   text-decoration: none;
-  font-size: 11px;
+  font-size: 0.9rem;
   transition: color 0.2s ease;
 }
 
@@ -88,94 +171,84 @@
 }
 
 .footer__separator {
-  color: #555;
-  font-size: 11px;
+  color: #6c7380;
+  font-size: 0.9rem;
 }
 
 .footer__copyright {
   text-align: center;
-  padding: 12px 30px;
-  border-top: 1px solid #3f4553;
-  color: #9daabd;
-  font-size: 11px;
-  background-color: #0f1419;
+  padding: 14px 20px 24px;
+  color: #8d95a3;
+  font-size: 0.9rem;
+  background-color: rgba(10, 13, 17, 0.9);
   max-width: 100%;
 }
 
 /* ================= FOOTER RESPONSIVE ================= */
 
-@media screen and (max-width: 768px) {
-  .footer {
-    padding: 15px 15px;
-    margin-top: 20px;
+@media screen and (max-width: 900px) {
+  .footer__top {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer__container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-bottom: 10px;
-  }
-
-  .footer__section h4 {
-    font-size: 11px;
-    margin-bottom: 8px;
-  }
-
-  .footer__section li {
-    margin-bottom: 4px;
-  }
-
-  .footer__section a {
-    font-size: 10px;
-  }
-
-  .footer__bottom {
-    gap: 15px;
-    padding: 10px;
-  }
-
-  .footer__links {
-    gap: 8px;
-  }
-
-  .footer__links a {
-    font-size: 10px;
-  }
-
-  .footer__copyright {
-    padding: 10px 15px;
-    font-size: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 600px) {
   .footer {
-    padding: 12px 12px;
+    padding: 16px 12px 0;
     margin-top: 15px;
+  }
+
+  .footer__top {
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+  }
+
+  .footer__brand {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer__brand h3 {
+    font-size: 0.95rem;
+  }
+
+  .footer__brand p {
+    font-size: 0.85rem;
+  }
+
+  .footer__backToTop {
+    font-size: 0.9rem;
+    padding: 8px 12px;
   }
 
   .footer__container {
     grid-template-columns: 1fr;
-    gap: 10px;
-    margin-bottom: 8px;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .footer__section {
+    padding: 12px;
   }
 
   .footer__section h4 {
-    font-size: 10px;
-    margin-bottom: 6px;
-  }
-
-  .footer__section li {
-    margin-bottom: 3px;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
   }
 
   .footer__section a {
-    font-size: 9px;
+    font-size: 0.86rem;
   }
 
   .footer__bottom {
     gap: 10px;
-    padding: 8px;
+    padding: 8px 0 0;
   }
 
   .footer__links {
@@ -188,12 +261,11 @@
   }
 
   .footer__links a {
-    font-size: 9px;
-    display: inline;
+    font-size: 0.85rem;
   }
 
   .footer__copyright {
-    padding: 8px 12px;
-    font-size: 9px;
+    padding: 10px 12px 16px;
+    font-size: 0.8rem;
   }
 }
