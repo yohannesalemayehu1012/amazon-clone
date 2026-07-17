@@ -5,23 +5,26 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { auth } from "../../Utility/firebase";
 import {
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { Type } from "../../Utility/action.type";
 import { ClipLoader } from "react-spinners";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import amazonLogo from "../../Image/amazon-logo.png";
 
 function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [resetMessage, setResetMessage] = useState("");
+  const [resetError, setResetError] = useState("");
   const [{ user }, dispatch] = useContext(DataContext);
 
   const [loading, setLoading] = useState({
     signIn: false,
     signUp: false,
+    resetPassword: false,
   });
 
   const navigate = useNavigate();
@@ -34,13 +37,13 @@ function Auth() {
 
   const authHandler = async (e) => {
     e.preventDefault();
-    console.log(e.target.name);
+    setResetMessage("");
+    setResetError("");
+
     if (e.target.name === "signin") {
-      // Firebase Authentication
       setLoading({ ...loading, signIn: true });
       signInWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
-          // console.log(userInfo);
           dispatch({
             type: Type.SET_USER,
             user: userInfo.user,
@@ -50,7 +53,6 @@ function Auth() {
           navigate(navStateData?.state?.redirect || "/");
         })
         .catch((error) => {
-          // console.log(error.message);
           setError(error.message);
           setLoading({ ...loading, signIn: false });
         });
@@ -58,7 +60,6 @@ function Auth() {
       setLoading({ ...loading, signUp: true });
       createUserWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
-          // console.log(userInfo);
           dispatch({
             type: Type.SET_USER,
             user: userInfo.user,
@@ -67,10 +68,36 @@ function Auth() {
           navigate("/");
         })
         .catch((error) => {
-          // console.log(error);
           setError(error.message);
           setLoading({ ...loading, signUp: false });
         });
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    if (!email.trim()) {
+      setResetError(
+        "Please enter your email address before requesting a reset link.",
+      );
+      setResetMessage("");
+      return;
+    }
+
+    setLoading({ ...loading, resetPassword: true });
+    setResetError("");
+    setResetMessage("");
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setResetMessage(
+        `A password reset link has been sent to ${email}. Please check your inbox.`,
+      );
+    } catch (error) {
+      setResetError(
+        error.message || "Unable to send the recovery email right now.",
+      );
+    } finally {
+      setLoading({ ...loading, resetPassword: false });
     }
   };
 
@@ -78,11 +105,10 @@ function Auth() {
   return (
     <section className={classes.login}>
       {/* Logo */}
-      <Link to="/" className={classes.login__logoLink}>
+      <Link to="/">
         <img
-          src={amazonLogo}
+          src="https://i.pinimg.com/736x/75/70/30/757030bb2dee57dddd5446b78a783daf.jpg"
           alt="Amazon Logo"
-          className={classes.login__logo}
         />
       </Link>
 
@@ -128,6 +154,30 @@ function Auth() {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
+
+            <div className={classes.password_actions}>
+              <button
+                type="button"
+                onClick={handlePasswordReset}
+                className={classes.forgot_password_button}
+              >
+                {loading.resetPassword ? (
+                  <ClipLoader color="#ff9900" size={12} />
+                ) : (
+                  "Forgot password?"
+                )}
+              </button>
+            </div>
+
+            {(resetError || resetMessage) && (
+              <div
+                className={`${classes.reset_status} ${
+                  resetError ? classes.reset_status_error : ""
+                }`}
+              >
+                {resetError || resetMessage}
+              </div>
+            )}
           </div>
           <button
             type="submit"
