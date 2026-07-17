@@ -1,0 +1,116 @@
+.category__container {
+  position: relative;
+  margin-top: -8%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
+  gap: 24px;
+  max-width: 1600px;
+  padding: 24px;
+  align-items: stretch;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* CARD */
+.category {
+  width: 100%;
+  min-height: 360px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e9eef7;
+  border-radius: 16px;
+  padding: 18px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.category:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.14);
+}
+
+/* LINK */
+.category a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: #1f2937;
+}
+
+.category a span {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+/* IMAGE */
+.category img {
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  border-radius: 12px;
+  padding: 10px;
+  background: linear-gradient(135deg, #f9fbff 0%, #eef4ff 100%);
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.08);
+}
+
+/* TITLE */
+.category h2 {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0;
+  color: #111827;
+  letter-spacing: -0.01em;
+}
+
+/* TEXT */
+.category p {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2563eb;
+  background: linear-gradient(90deg, #eef5ff 0%, #dbeafe 100%);
+  border-radius: 999px;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.12);
+}
+
+.category:hover p {
+  background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  transform: translateX(2px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .category__container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: -4%;
+  }
+}
+
+@media (max-width: 640px) {
+  .category__container {
+    grid-template-columns: 1fr;
+    margin-top: 0;
+    padding: 16px;
+  }
+
+  .category {
+    min-height: auto;
+  }
+}
+
+ 
