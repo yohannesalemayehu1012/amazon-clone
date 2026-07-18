@@ -9,7 +9,8 @@ This project was developed over the course of **one month** to strengthen my ful
 ## 🚀 Live Demo
 
 ### Frontend
-https://amazon-clone-best-76zu70u7e-kenna-plc.vercel.app
+https://amazon-clone-six-rho-44.vercel.app/
+
 ### Backend API
 https://amazon-api-2xwv.onrender.com
 
