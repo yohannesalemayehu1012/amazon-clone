@@ -9,7 +9,7 @@ This project was developed over the course of **one month** to strengthen my ful
 ## 🚀 Live Demo
 
 ### Frontend
-https://amazon-clone-yohannes-1012.netlify.app/
+https://amazon-clone-best-76zu70u7e-kenna-plc.vercel.app
 ### Backend API
 https://amazon-api-2xwv.onrender.com
 
@@ -338,7 +338,7 @@ Throughout this project, I learned how to:
 
 Frontend
 
-Netlify
+Vercel
 
 Backend
 
