@@ -17,35 +17,31 @@ https://amazon-api-2xwv.onrender.com
 
 ## 📸 Screenshots
 
-> Add screenshots inside a `/screenshots` folder.
+> Add screenshots inside a `/screenshots` folder.## 📸 Screenshots
 
 ### Home Page
 
-![Home](../amazon-clone/src/Components/screenshots/1.Home%20Page.png)
+![Home](./src/Components/screenshots/1.Home%20Page.png)
 
-### Products
+### Sign Up
 
-![Products](../amazon-clone/src/Components/screenshots/2.Sign%20Up.png)
+![Sign Up](./src/Components/screenshots/2.Sign%20Up.png)
 
-### Shopping Cart
+### Cart
 
-![Cart](../amazon-clone/src/Components/screenshots/4.Cart.png)
+![Cart](./src/Components/screenshots/4.Cart.png)
 
 ### Checkout
 
-![Checkout](../amazon-clone/src/Components/screenshots/6.%20Checkout.png)
+![Checkout](./src/Components/screenshots/6.%20Checkout.png)
 
 ### Payment
 
-![Payment](../amazon-clone/src/Components/screenshots/7.Payment.png)
+![Payment](./src/Components/screenshots/7.Payment.png)
 
-### Order
+### Orders
 
-![Order](../amazon-clone/src/Components/screenshots//5.Order.png)
-
-### SignUp
-
-![SignUp](../amazon-clone/src/Components/screenshots/2.Sign%20Up.png)
+![Orders](./src/Components/screenshots/5.Order.png)
 
 
 ---
